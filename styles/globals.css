@@ -1,0 +1,21 @@
+.sidenav-element:hover svg.sidenav-icon path,
+.sidenav-element:hover svg.sidenav-icon line {
+  fill: #b97bf8;
+  stroke: #b97bf8;
+  /* transition: all ease 0.3s; */
+}
+
+.active svg.sidenav-icon path,
+.active svg.sidenav-icon line,
+.active {
+  fill: #b97bf8;
+  stroke: #b97bf8;
+  /* transition: all ease 0.3s; */
+}
+
+.influencer_profile_card_bio {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

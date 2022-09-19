@@ -3,6 +3,7 @@ import colors from "./foundations/colors";
 import { fonts, fontSizes } from "./foundations/fonts";
 import breakpoints from "./foundations/breakpoints";
 import styles from "./styles";
+import config from "./config";
 
 export const theme = extendTheme({
   colors,
@@ -10,4 +11,5 @@ export const theme = extendTheme({
   breakpoints,
   fontSizes,
   styles,
+  config,
 });

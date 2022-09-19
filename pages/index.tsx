@@ -1,7 +1,7 @@
-import { Center, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { HiOutlineCollection } from "react-icons/hi";
+import DashboardModule from "../modules/dashboard";
 
 const Home: NextPage = () => {
   return (
@@ -12,14 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Center h="100vh" flexDir={"column"}>
-          <HiOutlineCollection size="30px" color="red" />
-          <Text fontSize={"3xl"} fontWeight={900} color="red.500">
-            Welcome to my starter template
-          </Text>
-        </Center>
-      </main>
+      <DashboardModule />
     </>
   );
 };
