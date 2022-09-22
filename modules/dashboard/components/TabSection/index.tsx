@@ -7,7 +7,7 @@ import {
   Tabs,
   Icon,
 } from "@chakra-ui/react";
-import cup from "../../../assets/icons/cup.svg";
+import cup from "../../../../assets/icons/cup.svg";
 import CommunityListing from "./CommunityListing";
 import LatestNews from "./LatestNews";
 

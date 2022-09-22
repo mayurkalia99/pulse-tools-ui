@@ -80,13 +80,7 @@ const NavItem: React.FC<NavItemProps> = memo(
           }
           className={active ? "sidenav-element active" : "sidenav-element"}
         >
-          <Icon
-            // colorMode={colorMode}
-            as={icon}
-            className={`sidenav-icon ${customName}`}
-            // fontSize={{ md: "0.75rem", lg: "1rem" }}
-            // {...cond(active, { color: '#00FFC2' }, { color: 'inherit' })}
-          />
+          <Icon as={icon} className={`sidenav-icon ${customName}`} />
           {name && (
             <Text
               ml="20px"

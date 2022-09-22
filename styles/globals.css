@@ -1,3 +1,13 @@
+html {
+  overflow: hidden;
+}
+
+.sidenav-element svg.sidenav-icon path,
+.sidenav-element svg.sidenav-icon line {
+  fill: rgba(187, 191, 202, 1);
+  stroke: rgba(187, 191, 202, 1);
+  /* transition: all ease 0.3s; */
+}
 .sidenav-element:hover svg.sidenav-icon path,
 .sidenav-element:hover svg.sidenav-icon line {
   fill: #b97bf8;
@@ -5,7 +15,7 @@
   /* transition: all ease 0.3s; */
 }
 
-.active svg.sidenav-icon path,
+*/ .active svg.sidenav-icon path,
 .active svg.sidenav-icon line,
 .active {
   fill: #b97bf8;
@@ -18,4 +28,33 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.table-container::-webkit-scrollbar {
+  width: 3px; /* width of the entire scrollbar */
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #eceef7; /* color of the scroll thumb */
+  border-radius: 2px; /* roundness of the scroll thumb */
+  border: 1px solid #eceef7; /* creates padding around scroll thumb */
+}
+
+td {
+  padding: 12px 24px !important;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+td:first-of-type {
+  padding-left: 0px !important;
+}
+
+th {
+  padding-bottom: 0px !important;
+  padding-top: 0px !important;
 }

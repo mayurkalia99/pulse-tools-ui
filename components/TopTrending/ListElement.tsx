@@ -1,15 +1,16 @@
 import { Box, Flex, Icon, Text, useColorMode } from "@chakra-ui/react";
 import React, { FC } from "react";
 import { Image } from "../Image";
-import { roundOff } from "../../utils/roundOff";
+import { ellipseNum, roundOff } from "../../utils/roundOff";
 import dexIcon from "../../assets/icons/dexIcon.svg";
 import pulseIcon from "../../assets/icons/pulseIcon.svg";
 import upArrow from "../../assets/icons/upArrow";
 import downArrow from "../../assets/icons/downArrow";
 import { cond } from "../../utils/cond";
+import { IconProps } from "@chakra-ui/icons";
 
-export const PulseIcon = () => (
-  <Icon as={pulseIcon} w="16px" h="16px" mr="2px" />
+export const PulseIcon: FC<IconProps> = (props) => (
+  <Icon as={pulseIcon} {...props} minW="16px" minH="16px" mr="2px" />
 );
 
 interface ListElementProps {
@@ -92,7 +93,7 @@ const ListElement: FC<ListElementProps> = ({
         />
       </Flex>
       <Text fontWeight="700" lineHeight="20px" fontSize="14px">
-        ${roundOff(price, 2)}
+        ${ellipseNum(price, 2)}
       </Text>
     </Box>
   );

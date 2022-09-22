@@ -4,9 +4,11 @@ import { withMemo } from "../hoc/withMemo";
 
 interface ImageProps extends ImgProps {
   alt: string;
-  fallback: React.ReactElement;
+  fallback?: React.ReactElement;
 }
 
 export const Image: React.FC<ImageProps> = withMemo("Image", (props) => {
-  return <ChakraImage {...props} />;
+  return (
+    <ChakraImage referrerPolicy="no-referrer" borderRadius="50%" {...props} />
+  );
 });

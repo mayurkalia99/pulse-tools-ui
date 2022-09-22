@@ -3,7 +3,6 @@ import {
   Avatar,
   Box,
   Flex,
-  Highlight,
   HStack,
   Icon,
   Link,
@@ -14,16 +13,14 @@ import {
 import {
   IInfluencerProfile,
   useGetAllInfluencerProfiles,
-} from "../../../hooks/queries/useAllProfiles";
-import { useHorizontalScroll } from "../../../hooks/useHorizontalScroll";
-import home from "../../../assets/icons/home";
-import twitter from "../../../assets/icons/twitter.svg";
-import telegram from "../../../assets/icons/telegram.svg";
-import github from "../../../assets/icons/github.svg";
-import discord from "../../../assets/icons/discord.svg";
-import profileCharacter from "../../../assets/icons/profileCharacter.svg";
-import { cond } from "@/utils/cond";
-
+} from "../../../../hooks/queries/useAllProfiles";
+import { useHorizontalScroll } from "../../../../hooks/useHorizontalScroll";
+import home from "../../../../assets/icons/home";
+import twitter from "../../../../assets/icons/twitter.svg";
+import telegram from "../../../../assets/icons/telegram.svg";
+import github from "../../../../assets/icons/github.svg";
+import discord from "../../../../assets/icons/discord.svg";
+import profileCharacter from "../../../../assets/icons/profileCharacter.svg";
 interface ListingCardProps extends IInfluencerProfile {
   colorMode: string;
 }
@@ -52,11 +49,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ colorMode, ...data }) => (
         <HStack mt="2px !important" alignItems={"flex-start"}>
           {data.website.length !== 0 && (
             <Link href={data.website} target="_blank">
-              <Icon
-                // color={colorMode === "light" ? "black" : "white"
-                as={home}
-                colorMode={colorMode}
-              />
+              <Icon as={home} colorMode={colorMode} />
             </Link>
           )}
           {data.twitter.length !== 0 && (

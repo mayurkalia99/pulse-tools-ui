@@ -23,7 +23,7 @@ function RadioCard(props: any) {
         cursor="pointer"
         w="137px"
         _checked={{
-          bg: colorMode === "light" ? "white" : "#1B1B1B",
+          bg: colorMode === "light" ? "white" : "black",
           // color: "white",
           borderColor: "1px solid #9898DE",
         }}

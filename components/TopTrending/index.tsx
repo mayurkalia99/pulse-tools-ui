@@ -1,38 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Box, HStack, Icon, Text, useColorMode } from "@chakra-ui/react";
 import litIcon from "../../assets/icons/lit.svg";
 import FilterSortButtons from "../FilterSortButtons";
 import ListElement from "./ListElement";
 import { useTrendingTokens } from "../../hooks/queries/useTopTrending";
 
+type SortType = {
+  field?: string;
+  sort?: "asc" | "desc";
+};
 const TopTrending = () => {
   const { colorMode } = useColorMode();
-  const [filterBy, setFilterBy] = useState("liquidity");
-  const [sortBy, setSortBy] = useState<"desc" | "asc">("desc");
+  const [sort, setSort] = useState<SortType>({
+    field: "liquidity",
+    sort: "desc",
+  });
   const [timeframe, setTimeframe] = useState("");
   const [radioItem, setRadioItem] = useState("");
   const { data, isLoading } = useTrendingTokens({
     page: 1,
     size: 10,
-    field: filterBy,
-    sort: sortBy,
+    field: sort.field,
+    sort: sort.sort,
   });
 
   useEffect(() => {
     function FilterSort() {
       if (radioItem === "All Pairs") {
-        setFilterBy("liquidity");
-        setSortBy("desc");
+        setSort({ field: "liquidity", sort: "desc" });
       } else if (radioItem === "Top Gainers") {
-        setFilterBy("priceChange");
-        setSortBy("desc");
+        setSort({ field: "priceChange", sort: "desc" });
       } else if (radioItem === "Top Loosers") {
-        setFilterBy("priceChange");
-        setSortBy("asc");
+        setSort({ field: "priceChange", sort: "asc" });
       }
     }
     FilterSort();
-  }, [filterBy, radioItem, sortBy]);
+  }, [radioItem]);
 
   return (
     <Box

@@ -17,7 +17,9 @@ const Layout = ({ children, ...rest }: LayoutPropType) => {
           p={{ md: "22px 45px 0px 25px", xlg: "22px 80px 0px 50px" }}
           marginInlineStart="0px !important"
           w={{ sm: "100vw", md: "100vw", lg: "100vw" }}
+          maxH="100vh"
           overflowX="hidden"
+          overflowY="auto"
           {...rest}
         >
           <Header />

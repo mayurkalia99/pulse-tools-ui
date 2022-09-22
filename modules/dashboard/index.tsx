@@ -4,6 +4,7 @@ import Layout from "../../components/Layout/index";
 import TopTrending from "../../components/TopTrending";
 import QuickLinksBox from "../../components/QuickLinksBox";
 import TabSection from "./components/TabSection";
+import Table from "./components/Table";
 
 const DashboardModule = () => {
   return (
@@ -15,6 +16,7 @@ const DashboardModule = () => {
             <QuickLinksBox />
           </Flex>
           <TabSection />
+          <Table />
         </>
       </Layout>
     </main>
