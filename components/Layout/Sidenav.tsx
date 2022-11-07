@@ -1,36 +1,7 @@
-// const Sidenav = () => {
-//   return (
-//     <Box
-//       h="100vh"
-//       w="95px"
-//       borderRadius="0px 20px 20px 0px"
-//       bg="primary"
-//       p="80px 32px"
-//       display="flex"
-//       flexDirection="column"
-//       alignItems="center"
-//     >
-//       <Icon as={logo} alt="logo" w="35" h="30" mb="60px" />
-//       <IconButton
-//         className="side_nav_button"
-//         aria-label="home"
-//         as={home}
-//         alt="home"
-//         w="20px"
-//         h="20px"
-//       />
-//     </Box>
-//   );
-// };
-
-// export default Sidenav;
-
 import {
   Box,
   DrawerProps,
   Icon,
-  IconButtonProps,
-  Image,
   Link,
   LinkProps,
   Text,
@@ -42,7 +13,6 @@ import { useRouter } from "next/router";
 import logo from "../../assets/icons/logo.svg";
 import flash from "../../assets/icons/flash.svg";
 import sidenavHome from "../../assets/icons/sidenav-home.svg";
-import { IconBaseProps } from "react-icons/lib";
 
 interface NavItemProps extends LinkProps {
   icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
@@ -70,14 +40,6 @@ const NavItem: React.FC<NavItemProps> = memo(
           mb="48px"
           {...rest}
           _hover={{ color: "#8A52FF", fill: "#8A52FF" }}
-          _active={{ color: "#8A52FF", fill: "#8A52FF" }}
-          color={
-            rest.color
-              ? rest.color
-              : active
-              ? "#8A52FF"
-              : "rgba(187, 191, 202, 1)"
-          }
           className={active ? "sidenav-element active" : "sidenav-element"}
         >
           <Icon as={icon} className={`sidenav-icon ${customName}`} />
@@ -116,17 +78,23 @@ const SideNav: React.FC<SidenavProps> = memo(() => {
       display="flex"
       flexDirection="column"
       alignItems="center"
+      sx={{
+        position: "-webkit-sticky",
+        top: "0",
+        left: "0",
+      }}
+      position="static"
+      pos="relative"
     >
       <Icon
         as={logo}
-        alt="logo"
         // mb={{ md: "30px", lg: "60px", xlg: "105px" }}
         w="35"
         h="30"
         mb="60px"
       />
       <NavItem icon={sidenavHome} link="/" />
-      <NavItem icon={flash} link="/balances" />
+      <NavItem icon={flash} link="/trending" />
       {/* <NavItem icon={usersIcon} name="Users" link="/users" /> */}
       {/* <NavItem icon={depositsIcon} name="Deposits" link="/deposits" /> */}
       {/* <NavItem icon={withdrawalsIcon} name="Withdrawals" link="/withdrawals" /> */}

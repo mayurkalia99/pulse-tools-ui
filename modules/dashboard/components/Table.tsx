@@ -20,6 +20,7 @@ import formatter from "@/utils/formatter";
 import { roundOff } from "@/utils/roundOff";
 import { cond } from "@/utils/cond";
 import TableActionIcons from "@/components/TableActionIcons";
+import { ZeroToNumber } from "@/utils/zeroToNumber";
 
 export type SortType = {
   field?: string;
@@ -52,6 +53,7 @@ const Table = () => {
         setSort({ field: "priceChange", sort: "asc" });
       }
     }
+    // console.log("zerotoNumber", zeroToNumber(0.000001005));
     FilterSort();
   }, [radioItem]);
 

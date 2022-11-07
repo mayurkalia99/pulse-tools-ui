@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { HiOutlineCollection } from "react-icons/hi";
 import DashboardModule from "../modules/dashboard";
 
 const Home: NextPage = () => {

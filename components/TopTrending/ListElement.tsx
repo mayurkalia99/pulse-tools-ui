@@ -8,6 +8,7 @@ import upArrow from "../../assets/icons/upArrow";
 import downArrow from "../../assets/icons/downArrow";
 import { cond } from "../../utils/cond";
 import { IconProps } from "@chakra-ui/icons";
+import { ZeroToNumber } from "@/utils/zeroToNumber";
 
 export const PulseIcon: FC<IconProps> = (props) => (
   <Icon as={pulseIcon} {...props} minW="16px" minH="16px" mr="2px" />
@@ -45,6 +46,7 @@ const ListElement: FC<ListElementProps> = ({
       display="flex"
       flexWrap={"wrap"}
       alignItems="center"
+      w={{ xsm: "100%", md: "auto" }}
     >
       <Text
         key={position}
@@ -72,6 +74,10 @@ const ListElement: FC<ListElementProps> = ({
           lineHeight="20px"
           letterSpacing="0.44px"
           mr={"10px"}
+          maxW={{ xsm: "95px", sm: "110px", md: "max-content" }}
+          overflow="hidden"
+          whiteSpace="nowrap"
+          textOverflow="ellipsis"
         >
           {name} ({symbol})
         </Text>
@@ -92,9 +98,12 @@ const ListElement: FC<ListElementProps> = ({
           as={cond(priceChange < 0, downArrow, upArrow)}
         />
       </Flex>
-      <Text fontWeight="700" lineHeight="20px" fontSize="14px">
-        ${ellipseNum(price, 2)}
-      </Text>
+      <ZeroToNumber
+        fontWeight="700"
+        lineHeight="20px"
+        fontSize="14px"
+        value={price}
+      />
     </Box>
   );
 };

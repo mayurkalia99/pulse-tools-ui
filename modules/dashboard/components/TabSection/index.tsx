@@ -6,12 +6,15 @@ import {
   TabPanels,
   Tabs,
   Icon,
+  IconProps,
 } from "@chakra-ui/react";
 import cup from "../../../../assets/icons/cup.svg";
 import CommunityListing from "./CommunityListing";
 import LatestNews from "./LatestNews";
 
-const WinnersCupIcon = () => <Icon mr="9px" as={cup} />;
+export const WinnersCupIcon: React.FC<IconProps> = (props) => (
+  <Icon {...props} mr="9px" as={cup} />
+);
 
 const TabSection = () => (
   <Tabs variant="unstyled" mt="27px">

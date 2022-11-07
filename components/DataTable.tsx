@@ -1,6 +1,5 @@
 import {
   Box,
-  Divider,
   Spinner,
   Table,
   TableContainer,
@@ -8,13 +7,12 @@ import {
   Tbody,
   Td,
   Text,
-  Th,
   Thead,
   Tr,
+  useColorMode,
 } from "@chakra-ui/react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
-import React, { Dispatch, FC, SetStateAction } from "react";
-import { TableTH } from "./TableTH";
+import React from "react";
 
 interface DataTableProps extends TableContainerProps {
   title: string;
@@ -22,21 +20,16 @@ interface DataTableProps extends TableContainerProps {
   children?: ReactJSXElement[];
   rightElement?: JSX.Element;
   isLoading: boolean;
-  field?: string;
-  sort?: string;
-  onSort?: Dispatch<SetStateAction<string>>;
 }
 
 const DataTable: React.FC<DataTableProps> = ({
   title,
   tableHeads,
-  sort,
-  onSort,
-  field,
   rightElement,
   children,
   isLoading,
 }) => {
+  const { colorMode } = useColorMode();
   return (
     <>
       <Box display="inline-flex" alignItems="center" width="100%">
@@ -45,7 +38,7 @@ const DataTable: React.FC<DataTableProps> = ({
           flexGrow="1"
           fontWeight="300"
           lineHeight="15px"
-          ml={{ sm: "0.5rem", md: "1rem" }}
+          ml={{ xsm: "0.5rem", md: "1rem" }}
         >
           {title}
         </Text>
@@ -54,19 +47,30 @@ const DataTable: React.FC<DataTableProps> = ({
       <Box
         className="table-container"
         p="0px 45px"
-        maxH={{ md: "54vh", xlg: "56vh" }}
+        // maxH={{ md: "54vh", xlg: "56vh" }}
         borderRadius="xl"
         marginY="1em"
-        bg="#191F26"
+        h="502px"
+        bg={colorMode === "dark" ? "#191F26" : "#F0F0F0"}
         overflowY="auto"
       >
         <TableContainer>
           <Table variant="unstyled" position="relative">
-            <Thead color="#FFFFFF" h={{ lg: "45px", xlg: "65px" }}>
+            <Thead
+              color={colorMode === "dark" ? "#FFFFFF" : "black"}
+              h={{ lg: "45px", xlg: "65px" }}
+            >
               <Tr
-                borderBottom="1px solid #000000"
+                borderBottom={
+                  colorMode === "dark"
+                    ? "1px solid #000000"
+                    : "1px solid #FFFFFF"
+                }
                 _first={{
-                  borderBottom: "1px solid #000000",
+                  borderBottom:
+                    colorMode === "dark"
+                      ? "1px solid #000000"
+                      : "1px solid #FFFFFF",
                   width: "91%",
                 }}
               >
@@ -74,9 +78,9 @@ const DataTable: React.FC<DataTableProps> = ({
               </Tr>
             </Thead>
             <Tbody
-              color="#BFBFBF"
+              color={colorMode === "dark" ? "#BFBFBF" : "balck"}
               fontWeight="500"
-              fontSize={{ sm: "14px", md: "16px" }}
+              fontSize={{ xsm: "14px", md: "16px" }}
             >
               {isLoading ? (
                 <Tr>

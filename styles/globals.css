@@ -1,6 +1,6 @@
-html {
+/* html {
   overflow: hidden;
-}
+} */
 
 .sidenav-element svg.sidenav-icon path,
 .sidenav-element svg.sidenav-icon line {
@@ -10,22 +10,28 @@ html {
 }
 .sidenav-element:hover svg.sidenav-icon path,
 .sidenav-element:hover svg.sidenav-icon line {
-  fill: #b97bf8;
-  stroke: #b97bf8;
+  fill: #6969ff;
+  stroke: #6969ff;
   /* transition: all ease 0.3s; */
 }
 
-*/ .active svg.sidenav-icon path,
+.active svg.sidenav-icon path,
 .active svg.sidenav-icon line,
 .active {
-  fill: #b97bf8;
-  stroke: #b97bf8;
+  fill: #6969ff;
+  stroke: #6969ff;
   /* transition: all ease 0.3s; */
 }
 
 .influencer_profile_card_bio {
   display: -webkit-box;
   -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.latest_news_card_description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -49,12 +55,51 @@ td {
   font-size: 12px;
   line-height: 20px;
   text-align: center;
+  overflow: hidden;
+  max-width: 190px;
 }
 td:first-of-type {
   padding-left: 0px !important;
 }
 
 th {
-  padding-bottom: 0px !important;
-  padding-top: 0px !important;
+  /* padding-bottom: 0px !important; */
+  padding-top: 12px !important;
+}
+
+.mobile-nav-pulse-text {
+  background: linear-gradient(
+    248.96deg,
+    #00eaff 10.51%,
+    #0080ff 29.87%,
+    #8000ff 48.64%,
+    #e619e6 68%,
+    #ff0000 87.11%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+}
+
+.__trending_tokens_compo__con {
+  position: absolute;
+  width: max-content;
+  height: 100%;
+  animation: 30s linear infinite smooth;
+}
+
+.__trending_tokens_compo__con:hover {
+  animation-play-state: paused;
+}
+@keyframes smooth {
+  0% {
+    transform: translateX(0);
+    left: 100%;
+  }
+
+  100% {
+    transform: translateX(-100%);
+    left: 0;
+  }
 }

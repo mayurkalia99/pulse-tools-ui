@@ -21,9 +21,35 @@ import telegram from "../../../../assets/icons/telegram.svg";
 import github from "../../../../assets/icons/github.svg";
 import discord from "../../../../assets/icons/discord.svg";
 import profileCharacter from "../../../../assets/icons/profileCharacter.svg";
+
 interface ListingCardProps extends IInfluencerProfile {
   colorMode: string;
 }
+
+type ProfileTag = {
+  bg_color: string;
+  tag: string;
+};
+
+export const ProfileTag: React.FC<ProfileTag> = ({ bg_color, tag }) => (
+  <HStack
+    mb="19px !important"
+    w="fit-content"
+    bg={bg_color}
+    borderRadius="10px"
+    px="5px"
+  >
+    <Icon boxSize="10px" as={profileCharacter} />
+    <Text
+      ml="2px !important"
+      fontWeight="500"
+      fontSize="10px"
+      lineHeight="20px"
+    >
+      {tag}
+    </Text>
+  </HStack>
+);
 
 const ListingCard: React.FC<ListingCardProps> = ({ colorMode, ...data }) => (
   <Flex
@@ -95,37 +121,21 @@ const ListingCard: React.FC<ListingCardProps> = ({ colorMode, ...data }) => (
         </Text>
       </HStack>
     </HStack>
-    <HStack
-      mb="19px"
-      w="fit-content"
-      bg={
-        data.founder
-          ? "rgba(176, 57, 150, 0.67)"
-          : data.investor
-          ? "rgba(57, 176, 155, 0.67)"
-          : data.influencer
-          ? "rgba(209, 137, 52, 0.67)"
-          : "rgba(57, 69, 176, 0.67)"
-      }
-      borderRadius="10px"
-      px="5px"
-    >
-      <Icon boxSize="10px" as={profileCharacter} />
-      <Text
-        ml="2px !important"
-        fontWeight="500"
-        fontSize="10px"
-        lineHeight="20px"
-      >
-        {data.founder
-          ? "Founder"
-          : data.investor
-          ? "Investor"
-          : data.influencer
-          ? "Influencer"
-          : "Whale"}
-      </Text>
+    <HStack>
+      {data.founder && (
+        <ProfileTag bg_color="rgba(176, 57, 150, 0.67)" tag="Founder" />
+      )}
+      {data.investor && (
+        <ProfileTag bg_color="rgba(57, 176, 155, 0.67)" tag="Investor" />
+      )}
+      {data.whale && (
+        <ProfileTag bg_color="rgba(57, 69, 176, 0.67)" tag="Whale" />
+      )}
+      {data.influencer && (
+        <ProfileTag bg_color="rgba(209, 137, 52, 0.67)" tag="Influencer" />
+      )}
     </HStack>
+
     <Box textOverflow="ellipsis" h="63px" mb="5px">
       <Text
         className="influencer_profile_card_bio"
@@ -142,6 +152,7 @@ const ListingCard: React.FC<ListingCardProps> = ({ colorMode, ...data }) => (
       lineHeight="20px"
       alignSelf="flex-end"
       color="#B97BF8"
+      href={`/influencer-profile/${data.slug}`}
     >
       View More
     </Link>

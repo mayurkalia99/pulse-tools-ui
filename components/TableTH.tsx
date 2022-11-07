@@ -1,11 +1,4 @@
-import {
-  Flex,
-  HStack,
-  Icon,
-  TableHeadProps,
-  Text,
-  TextProps,
-} from "@chakra-ui/react";
+import { HStack, Icon, Text, TextProps } from "@chakra-ui/react";
 import React, { Dispatch, FC, SetStateAction } from "react";
 import sortIcons from "../assets/icons/sortIcons.svg";
 import sortUp from "../assets/icons/sortUp.svg";
@@ -29,7 +22,7 @@ export const TableTH: FC<TableTHProps> = ({ head, onSort, field, sort }) => {
         paddingInlineStart: "0px",
       }}
       textTransform="none"
-      fontSize={{ sm: "12px", md: "12px", lg: "12px" }}
+      fontSize={{ xsm: "12px", md: "12px", lg: "12px" }}
       cursor="pointer"
       onClick={() =>
         onSort?.({

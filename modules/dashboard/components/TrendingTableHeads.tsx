@@ -31,7 +31,7 @@ const TrendingTableHeads: FC<TrendingTableHeadsProps> = ({ sort, onSort }) => (
     />
     <TableTH
       head="Vol %(1H)"
-      field="_1HourVolume"
+      field="_1HourVolumeChange"
       sort={sort}
       onSort={onSort}
     />
